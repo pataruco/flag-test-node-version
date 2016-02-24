@@ -1,5 +1,5 @@
 var REPL = require('repl');
-var db = require('./models');
+var db = require('./models/models');
 
 var repl = REPL.start("Flags >");
 
@@ -816,7 +816,7 @@ var principles = [
 
 principles.forEach(function(principle){
   db.Principle.create({
-    order: principle.name,
+    order: principle.order,
     title: principle.title,
     subTitle: principle.subTitle,
     explanation: principle.explanation

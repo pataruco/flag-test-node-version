@@ -5,8 +5,6 @@ var morgan = require('morgan');
 var request = require('request');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
-var i;
-var tag;
 
 //middleware
 app.use(morgan('dev'));
@@ -22,7 +20,7 @@ app.get('/', function (req, res) {
 });
 
 server.listen(port, function () {
-  console.log('Flag test is working in port ' + port);
+  console.log('Flag test is working on port ' + port);
 });
 
 // app.get('/pins', function(req, res){

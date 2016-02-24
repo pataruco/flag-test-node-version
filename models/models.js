@@ -6,8 +6,7 @@ var mongoose = require ("mongoose");
 var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
-'mongodb://localhost/flags';
-
+'mongodb://localhost:27017/flags';
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
@@ -56,7 +55,6 @@ var principleSchema = new mongoose.Schema({
     default: ""
   }
 });
-
 
 var Flag = mongoose.model("Flag", flagSchema);
 var Principle = mongoose.model("Principle", principleSchema);

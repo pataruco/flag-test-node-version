@@ -1,4 +1,5 @@
-var Principle = require('../models/models');
+var Principle = require('../models/principle'),
+    db = require('../models/principle');
 
 // GET
 function getAll(request, response) {

@@ -49,11 +49,11 @@ var principleSchema = new mongoose.Schema({
   },
   subTitle: {
     type: String,
-    // default: ""
+    default: ""
   },
   explanation: {
     type: String,
-    default: true
+    default: ""
   }
 });
 

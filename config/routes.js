@@ -1,15 +1,21 @@
-var express = require('express');
-    router  = express.Router();
-    db = require('../models/models');
+var express = require('express'),
+    router  = express.Router(),
+    // db = require('../models/models'),
     bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'); //used to manipulate POST
-    principlesController = require('../controllers/principles')
+    methodOverride = require('method-override'), //used to manipulate POST
+    principlesController = require('../controllers/principles');
 
 // Root
 router.get('/', function(req, res) {
   console.log("Root");
   res.render("root");
 });
+
+//Admin page
+router.get('/admin', function(req, res){
+  console.log('Admin');
+  res.render('admin');
+})
 
 // Principles roots
 router.route('/principles')

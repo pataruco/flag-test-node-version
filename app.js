@@ -5,6 +5,7 @@ var express = require('express'),
     request = require('request'),
     bodyParser = require('body-parser'),
     mongoose = require ("mongoose"),
+    expressLayouts = require('express-ejs-layouts'),
     uristring = process.env.MONGOLAB_URI ||
                 process.env.MONGOHQ_URL ||
                 'mongodb://localhost:27017/flags',
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('views', './views');
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // Server console

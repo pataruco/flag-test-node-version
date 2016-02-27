@@ -15,18 +15,21 @@ function getAll(request, response) {
 function createPrinciple(request, response) {
   console.log('in POST');
   console.log('body:',request.body);
-  var principle = new Principle();
+  var principle = db.Principle.create();
 
   principle.order = request.body.order;
   principle.title = request.body.title;
   principle.subTitle = request.body.subTitle;
   principle.explanation = request.body.explanation;
 
-  principle.save(function(error) {
-    if(error) response.json({messsage: 'Could not create principle b/c:' + error});
+  console.log('Principle object');
+  console.log(principle)
 
-    response.redirect('/principles');
-  });
+  // principle.save(function(error) {
+  //   if(error) response.json({messsage: 'Could not create principle b/c:' + error});
+  //
+  //   response.redirect('/principles');
+  // });
 }
 
 // GET

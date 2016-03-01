@@ -1,1 +1,9 @@
 <h2>Root</h2>
+
+<% data.principles.forEach(function(principle){ %>
+  <h1><%= principle.title %></h1>
+  <h2><%= principle.subTitle %></h2>
+  <p><%= principle.explanation %></p>
+<% }) %>
+
+<%# data.flags %>

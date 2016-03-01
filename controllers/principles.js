@@ -1,7 +1,7 @@
 var Principle = require('../models/principle'),
     db = require('../models/principle');
 
-// GET
+// GET (index)
 function getAll(request, response) {
   db.Principle.find(function(error, principles) {
     if(error) response.json({message: 'Could not find any principle'});
@@ -11,25 +11,16 @@ function getAll(request, response) {
   });
 }
 
-
+//Create (new)
 function createPrinciple(request, response) {
-  console.log('in POST');
-  console.log('body:',request.body);
-  var principle = db.Principle.create();
-
-  principle.order = request.body.order;
-  principle.title = request.body.title;
-  principle.subTitle = request.body.subTitle;
-  principle.explanation = request.body.explanation;
-
-  console.log('Principle object');
-  console.log(principle)
-
-  // principle.save(function(error) {
-  //   if(error) response.json({messsage: 'Could not create principle b/c:' + error});
-  //
-  //   response.redirect('/principles');
-  // });
+  db.Principle.create(request.body, function(error, principle){
+    principle.order = request.body.principle.order;
+    principle.title = request.body.principle.title;
+    principle.subTitle = request.body.principle.subTitle;
+    principle.explanation = request.body.principle.explanation;
+    principle.save();
+    response.status(201).redirect('/principles'); //success, object created
+  })
 }
 
 // GET

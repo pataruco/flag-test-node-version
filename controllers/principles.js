@@ -27,7 +27,7 @@ function createPrinciple(request, response) {
 function getPrinciple(request, response) {
   var id = request.params.id;
 
-  Principle.findById({_id: id}, function(error, principle) {
+  db.Principle.findById({_id: id}, function(error, principle) {
     if(error) response.json({message: 'Could not find principle b/c:' + error});
 
     response.json({principle: principle});
@@ -56,7 +56,7 @@ function updatePrinciple(request, response) {
 function removePrinciple(request, response) {
   var id = request.params.id;
 
-  Principle.remove({_id: id}, function(error) {
+  db.Principle.remove({_id: id}, function(error) {
     if(error) response.json({message: 'Could not delete principle b/c:' + error});
 
     response.json({message: 'Principle successfully deleted'});

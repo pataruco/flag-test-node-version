@@ -23,6 +23,10 @@ function createPrinciple(request, response) {
   })
 }
 
+function newPrinciple(request,response) {
+  response.render('principles/new');
+}
+
 // GET
 function getPrinciple(request, response) {
   var id = request.params.id;

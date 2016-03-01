@@ -1,44 +1,59 @@
 var express = require('express'),
     router  = express.Router(),
-    // db = require('../models/models'),
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'), //used to manipulate POST
-    principlesController = require('../controllers/principles');
+    principlesController = require('../controllers/principles'),
+    Principle = require('../models/principle'),
+    db = require('../models/principle'),
+    Flag = require('../models/flag');
+
 
 // Root
-router.get('/', function(req, res) {
+router.get('/', function(request, response) {
   console.log("Root");
-  res.render("root");
+  var data = {};
+  db.Principle.find(function(error, principles) {
+    if(error) response.json({message: 'Could not find any principle'});
+    data.principles =  principles;
+  });
+    db = require('../models/flag');
+    db.Flag.find(function(error, flags) {
+      if(error) response.json({message: 'Could not find any flag'});
+      data.flags =  flags;
+      response.render('root', {data: data});
+    });
 });
 
 //Admin page
-router.get('/admin', function(req, res){
+router.get('/admin', function(request, response){
   console.log('Admin');
-  res.render('admin');
-})
+  response.render('admin');
+});
+
+
 
 // Principles roots
-router.route('/principles')
+// router.route('/principles')
+//
+//   //GET all principles
+//   .get(principlesController.getAll)
+//
+//   //POST a new principle
+//   .post(principlesController.createPrinciple);
+//
+// router.route('/principles/:id')
+//
+//   // GET return specific principle
+//   .get(principlesController.getPrinciple)
+//
+//   // PATCH update existing principle
+//   .patch(principlesController.updatePrinciple)
+//
+//   // DELETE remove specific principle from DB
+//   .delete(principlesController.removePrinciple);
 
-  //GET all principles
-  .get(principlesController.getAll)
-
-  //POST a new principle
-  .post(principlesController.createPrinciple);
-
-
-router.route('/principles/:id')
-
-  // GET return specific principle
-  .get(principlesController.getPrinciple)
-
-  // PATCH update existing principle
-  .patch(principlesController.updatePrinciple)
-
-  // DELETE remove specific principle from DB
-  .delete(principlesController.removePrinciple);
-
-
+// router.route('/principles/new')
+//   .get(principlesController.newPrinciple);
 // router.get('/', function(req, res) {
 //   console.log("Root");
 //   res.render("index");
@@ -90,30 +105,6 @@ router.route('/principles/:id')
 //   console.log("delete");
 //   res.send("DELETE");
 // });
-
-
-// app.get('/pins', function(req, res){
-//    db.Pin.find({}, function(err, pins){
-//     res.send(pins);
-//   })
-// })
-
-// app.post('/pins', function(req, res){
-//   db.Pin.create(req.body, function(err, comment){
-//     res.send(201, comment); //success, object created
-//   })
-// })
-
-// app.delete("/pins/:id", function (req, res){
-//   var pinId = req.params.id;
-//   db.Pin.findByIdAndRemove({
-//     _id: pinId
-//   }, function(err, comment){
-//     res.send(204); //Success, no content
-//   })
-// });
-
-
 
 // Making available for all
 module.exports = router;

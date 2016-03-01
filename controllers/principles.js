@@ -1,7 +1,7 @@
 var Principle = require('../models/principle'),
     db = require('../models/principle');
 
-// GET
+// GET (index)
 function getAll(request, response) {
   db.Principle.find(function(error, principles) {
     if(error) response.json({message: 'Could not find any principle'});
@@ -11,29 +11,23 @@ function getAll(request, response) {
   });
 }
 
-
+//Create (new)
 function createPrinciple(request, response) {
-  console.log('in POST');
-  console.log('body:',request.body);
-  var principle = new Principle();
-
-  principle.order = request.body.order;
-  principle.title = request.body.title;
-  principle.subTitle = request.body.subTitle;
-  principle.explanation = request.body.explanation;
-
-  principle.save(function(error) {
-    if(error) response.json({messsage: 'Could not create principle b/c:' + error});
-
-    response.redirect('/principles');
-  });
+  db.Principle.create(request.body, function(error, principle){
+    principle.order = request.body.principle.order;
+    principle.title = request.body.principle.title;
+    principle.subTitle = request.body.principle.subTitle;
+    principle.explanation = request.body.principle.explanation;
+    principle.save();
+    response.status(201).redirect('/principles'); //success, object created
+  })
 }
 
 // GET
 function getPrinciple(request, response) {
   var id = request.params.id;
 
-  Principle.findById({_id: id}, function(error, principle) {
+  db.Principle.findById({_id: id}, function(error, principle) {
     if(error) response.json({message: 'Could not find principle b/c:' + error});
 
     response.json({principle: principle});
@@ -62,7 +56,7 @@ function updatePrinciple(request, response) {
 function removePrinciple(request, response) {
   var id = request.params.id;
 
-  Principle.remove({_id: id}, function(error) {
+  db.Principle.remove({_id: id}, function(error) {
     if(error) response.json({message: 'Could not delete principle b/c:' + error});
 
     response.json({message: 'Principle successfully deleted'});

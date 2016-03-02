@@ -1,7 +1,19 @@
 var REPL = require('repl');
+var mongoose = require ("mongoose");
 var db = require('../../models/flag');
-
 var repl = REPL.start("Flags >");
+
+uristring = process.env.MONGOLAB_URI ||
+            process.env.MONGOHQ_URL ||
+            'mongodb://localhost:27017/flags';
+
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 repl.context.db = db;
 

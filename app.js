@@ -20,6 +20,7 @@ app.set('views', './views');
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+//Database connection
 mongoose.connect(uristring, function (err, res) {
   if (err) {
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);

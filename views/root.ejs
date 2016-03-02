@@ -1,9 +1,53 @@
-<h2>Root</h2>
+<main>
+  <section class="intro">
+      <blockquote>"What I love about flags is that, once you understand the design of flags... You can understand the design of almost anything."</blockquote>
 
-<% data.principles.forEach(function(principle){ %>
-  <h1><%= principle.title %></h1>
-  <h2><%= principle.subTitle %></h2>
-  <p><%= principle.explanation %></p>
-<% }) %>
+      <cite>Roman Mars. Designer, Creator of 99% Invisible. From the TED talk "The Worst-Designed Thing you've never noticed."</cite>
 
+      <p>Tha's right. He's talking about flags. What are your thoughts on this way of looking at the world around us?</p>
+
+      <a href="#">Scroll to learn more.</a>
+  </section>
+
+  <section>
+    <h2>Starting to understand Design opens up a whole new way of seeing the world... Have you ever thought about that? Maybe not, but perhaps you should? Let's start by learning about some of the principles of good flag design.</h2>
+  </section>
+
+  <section>
+    <h1>What makes a well-designed flag?</h1>
+    <h2>According to NAVA&#42;, there are 5 Design Principles that all great flags adhere to...</h2>
+    <br></br><cite>&#42;The North American Vexillological&#42;&#42; Association.</cite><br></br>
+    <cite>&#42;&#42;A Vexillologist, or, 'Vexillonaire' is the name for someone who studies flags.</cite>
+  </section>
+
+  <section class="principles">
+    <% var i = 0; %>
+    <% data.principles.forEach(function(principle){ %>
+      <% i++ %>
+      <article class="principle" id="principle-<%= i %>">
+        <span><%= principle.order %></span>
+        <h1><%= principle.title %></h1>
+        <h2><%= principle.subTitle %></h2>
+        <p><%= principle.explanation %></p>
+      </article>
+      <% }) %>
+  </section>
+
+  <section>
+    <ol>
+      <li>Keep it Simple.</li>
+      <li>Use meaningful symbolism. </li>
+      <li>Use 2-3 basic colours.</li>
+      <li> No lettering or seals.</li>
+      <li>Be distinctive or be related.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h1>Know the Principles?</h1>
+    <h2>See how well you've grasped the NAVA Principles, by reviewing some national flags...</h2>
+    <a href="/quiz">Click Get Started to begin.</a>
+
+  </section>
+</main>
 <%# data.flags %>

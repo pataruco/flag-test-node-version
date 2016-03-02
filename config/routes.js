@@ -12,6 +12,7 @@ var express = require('express'),
 router.get('/', function(request, response) {
   console.log("Root");
   var data = {};
+  db = require('../models/principle');
   db.Principle.find(function(error, principles) {
     if(error) response.json({message: 'Could not find any principle'});
     data.principles =  principles;

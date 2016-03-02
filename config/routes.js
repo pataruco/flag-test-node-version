@@ -25,6 +25,17 @@ router.get('/', function(request, response) {
     });
 });
 
+router.get('/quiz', function(request, response){
+  console.log("Quiz");
+  var data = {};
+  db = require('../models/flag');
+  db.Flag.find(function(error, flags) {
+    if(error) response.json({message: 'Could not find any flag'});
+    data.flags =  flags;
+    response.render('quiz', {data: data});
+  });
+})
+
 //Admin page
 router.get('/admin', function(request, response){
   console.log('Admin');

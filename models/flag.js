@@ -9,7 +9,7 @@ var flagSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  GoodFlag: {
+  goodFlag: {
     type: Boolean,
     default: true
   },

@@ -25,6 +25,28 @@ router.get('/', function(request, response) {
     });
 });
 
+router.get('/quiz', function(request, response){
+  console.log("Quiz");
+  var data = {};
+  db = require('../models/flag');
+  db.Flag.find(function(error, flags) {
+    if(error) response.json({message: 'Could not find any flag'});
+    data.flags =  flags;
+    response.render('quiz', {data: data});
+  });
+});
+
+router.get('/flags', function(request, response){
+  console.log("Quiz");
+  db = require('../models/flag');
+  db.Flag.find(function(error, flags) {
+    if(error) response.json({message: 'Could not find any flag'});
+    response.json(flags);
+  });
+});
+
+
+
 //Admin page
 router.get('/admin', function(request, response){
   console.log('Admin');

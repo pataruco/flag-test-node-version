@@ -1,11 +1,21 @@
 $(document).ready(function(){
+  //Variables
   var flags = {},
       randomFlagNumber,
-      flag = {};
+      $buttonWhere = $('#where'),
+      flag = {},
+      $renderAnswerContainer = $('#render-answer'),
+      score = 0,
+      $renderScoreContainer = $('#render-score'),
+      $renderFlagContainer = $('#render-flag');
 
+  //Event Listeners
   $(window).on('load', getFlags);
+  $buttonWhere.on('click', renderWhereInTheWorld);
+  $('.js-quiz-evaluation-btn').on('click', evaluateFlag);
 
-  function getFlags() {
+  // Functions
+  function getFlags(e) {
     $.ajax({
       type: 'GET',
       dataType: 'json',
@@ -13,10 +23,8 @@ $(document).ready(function(){
     })
     .success(function(data){
       flags = data;
-      console.log(flags);
       renderFlag();
-      // renderWhereInTheWorld();
-      })
+    });
   };
 
   function randomFlag(){
@@ -26,18 +34,52 @@ $(document).ready(function(){
 
   function renderFlag() {
     randomFlag();
-    $('#render-flag')
-      .append('<h1>' + flag.name + '</h1>')
-      .append('<img src="' + flag.url + '" alt="'+ flag.name +'"/>')
-      .append('<a href="#" id="good-flag">Good Flag ✔</a>')
-      .append('<a href="#" id="bad-flag">Bad Flag ✘</a>')
+    $buttonWhere
+      .after('<img src="' + flag.url + '" alt="'+ flag.name +'"/>')
+      .after('<h1>' + flag.name + '</h1>');
   };
 
-  $('#where').on('click', renderWhereInTheWorld);
-
-  function renderWhereInTheWorld () {
+  function renderWhereInTheWorld (e) {
     var map = "https://www.google.com/maps/embed/v1/search?key=AIzaSyA00nFCVfgsnGqEIEpmO-sjelodI3op1MI&q="+flag.name;
     $('#render-where')
-      .append('<iframe src="'+ map +'" width= 100% height= 100% frameborder="0" style="border:0" allowfullscreen> </iframe>');
-  }
+      .append('<iframe src="'+ map +'" width= 100% height= 100% frameborder="0" style="border:0" allowfullscreen></iframe>');
+  };
+
+  function evaluateFlag(e){
+    e.preventDefault();
+    switch (this.id) {
+      case 'good-flag':
+        if (flag.goodFlag) {
+          renderCorrectAnswer();
+        } else {
+          renderWrongtAnswer();
+        }
+        break;
+      case 'bad-flag':
+        if (flag.goodFlag == false){
+          renderCorrectAnswer();
+        } else {
+          renderWrongtAnswer();
+        }
+        break;
+    };
+  };
+
+  function renderCorrectAnswer() {
+    $renderAnswerContainer.append('<h2>Correct!</h2>');
+    removeFlag();
+  };
+
+  function renderWrongtAnswer() {
+    $renderAnswerContainer.append('<h2>Wrong!</h2>');
+    removeFlag();
+  };
+
+  function removeFlag() {
+    $renderFlagContainer.find('img').remove();
+    $renderFlagContainer.find('h1').remove();
+    renderFlag();
+  };
+
+
 }); //end document

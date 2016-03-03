@@ -6,7 +6,9 @@ $(document).ready(function(){
       flag = {},
       $renderAnswerContainer = $('#render-answer'),
       score = 0,
-      $renderScoreContainer = $('#render-score'),
+      tries = 0,
+      $renderScoreContainer = $('#score'),
+      $renderTriesContainer = $('#tries'),
       $renderFlagContainer = $('#render-flag');
 
   //Event Listeners
@@ -24,6 +26,8 @@ $(document).ready(function(){
     .success(function(data){
       flags = data;
       renderFlag();
+      renderScore(score);
+      renderTries(tries);
     });
   };
 
@@ -67,12 +71,20 @@ $(document).ready(function(){
 
   function renderCorrectAnswer() {
     $renderAnswerContainer.append('<h2>Correct!</h2>');
+    updateScore();
+    renderScore();
+    updateTries();
+    renderTries();
     removeFlag();
+    checkRoundNumber();
   };
 
   function renderWrongtAnswer() {
     $renderAnswerContainer.append('<h2>Wrong!</h2>');
+    updateTries();
+    renderTries();
     removeFlag();
+    checkRoundNumber();
   };
 
   function removeFlag() {
@@ -80,6 +92,43 @@ $(document).ready(function(){
     $renderFlagContainer.find('h1').remove();
     renderFlag();
   };
+
+  function removeAnswer() {
+    $renderAnswerContainer.empty();
+  };
+
+  function renderScore() {
+    $renderScoreContainer.text(score);
+  };
+
+  function renderTries() {
+    $renderTriesContainer.text(tries);
+  };
+
+  function updateTries() {
+    return tries++;
+  };
+
+  function updateScore() {
+    return score++;
+  };
+
+  function renderRoundtComplete() {
+    $renderAnswerContainer.append('<h2>Congratulations you have '+score+' / '+ tries+'</h2>');
+    updateTries();
+    renderTries();
+    removeFlag();
+  }
+
+  function checkRoundNumber() {
+    if (tries = 10) {
+      renderRoundtComplete();
+      score = 0;
+      tries = 0;
+    }
+  };
+
+
 
 
 }); //end document

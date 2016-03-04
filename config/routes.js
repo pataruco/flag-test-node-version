@@ -45,6 +45,10 @@ router.get('/flags', function(request, response){
   });
 });
 
+router.get('/watch', function(request, response){
+  console.log('watch');
+  response.render('watch');
+});
 
 
 //Admin page

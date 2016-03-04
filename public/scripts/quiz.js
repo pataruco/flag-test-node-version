@@ -15,6 +15,7 @@ $(document).ready(function(){
   $(window).on('load', getFlags);
   $buttonWhere.on('click', renderWhereInTheWorld);
   $('.js-quiz-evaluation-btn').on('click', evaluateFlag);
+  $renderAnswerContainer.on('click', removeAnswer);
 
   // Functions
   function getFlags(e) {
@@ -43,7 +44,7 @@ $(document).ready(function(){
       .after('<h1>' + flag.name + '</h1>');
   };
 
-  function renderWhereInTheWorld (e) {
+  function renderWhereInTheWorld(e) {
     var map = "https://www.google.com/maps/embed/v1/search?key=AIzaSyA00nFCVfgsnGqEIEpmO-sjelodI3op1MI&q="+flag.name;
     $('#render-where')
       .append('<iframe src="'+ map +'" width= 100% height= 100% frameborder="0" style="border:0" allowfullscreen></iframe>');
@@ -113,22 +114,24 @@ $(document).ready(function(){
     return score++;
   };
 
+  function removeRenderScore(){
+    $renderScoreContainer.empty();
+  };
+
   function renderRoundtComplete() {
     $renderAnswerContainer.append('<h2>Congratulations you have '+score+' / '+ tries+'</h2>');
     updateTries();
     renderTries();
     removeFlag();
-  }
+  };
 
   function checkRoundNumber() {
-    if (tries = 10) {
+    if (tries === 5) {
+      removeRenderScore();
       renderRoundtComplete();
       score = 0;
       tries = 0;
-    }
+    };
   };
-
-
-
 
 }); //end document

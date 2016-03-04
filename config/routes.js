@@ -45,12 +45,21 @@ router.get('/flags', function(request, response){
   });
 });
 
+router.get('/watch', function(request, response){
+  console.log('watch');
+  response.render('watch');
+});
 
 
 //Admin page
 router.get('/admin', function(request, response){
   console.log('Admin');
   response.render('admin');
+});
+
+router.get('/about', function(request, response){
+  console.log('about');
+  response.render('about');
 });
 
 

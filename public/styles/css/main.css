@@ -1,0 +1,15 @@
+@import url(./nav.css);
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Fira Sans", sans-serif;
+  color: white; }
+
+a {
+  text-decoration: none;
+  color: white; }
+  a:hover {
+    text-decoration: none; }
+
+/*# sourceMappingURL=main.css.map */

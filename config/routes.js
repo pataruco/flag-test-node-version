@@ -57,6 +57,11 @@ router.get('/admin', function(request, response){
   response.render('admin');
 });
 
+router.get('/about', function(request, response){
+  console.log('about');
+  response.render('about');
+});
+
 
 
 // Principles roots

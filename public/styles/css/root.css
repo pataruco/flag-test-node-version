@@ -1,0 +1,109 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  .section article {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2em;
+    box-shadow: 1em 1em rgba(0, 0, 0, 0.65); }
+
+.intro-1 {
+  background-color: #FF9800; }
+  .intro-1 article {
+    background-color: #F44336; }
+    .intro-1 article blockquote {
+      border-right: .5em solid #FF9800;
+      border-bottom: .5em solid #FF9800;
+      box-shadow: 0.5em 0.5em rgba(0, 0, 0, 0.65);
+      font-weight: 500;
+      font-size: 2em;
+      padding: .2em; }
+    .intro-1 article p {
+      font-weight: 300;
+      font-size: 1.2em; }
+    .intro-1 article span {
+      text-align: center;
+      display: block; }
+
+.intro-2 {
+  background-color: #cddc39; }
+  .intro-2 article {
+    background-color: #009688; }
+  .intro-2 p {
+    font-weight: 300;
+    font-size: 1.5em; }
+
+.intro-3 {
+  background-color: #ff4081; }
+  .intro-3 article {
+    background-color: #607d8b; }
+  .intro-3 h1 {
+    font-size: 2em; }
+
+.principle span {
+  font-size: 10em;
+  font-weight: bold;
+  float: left;
+  line-height: 1em;
+  padding-right: .2em;
+  text-shadow: 0.12em 0.12em rgba(0, 0, 0, 0.65); }
+.principle h1 {
+  font-size: 2em;
+  line-height: 0; }
+.principle h2 {
+  font-size: 1.5em; }
+.principle p {
+  font-weight: 300;
+  font-size: 1.2em; }
+
+.principle-1 {
+  background-color: #536dfe; }
+  .principle-1 article {
+    background-color: #ffc107; }
+
+.principle-2 {
+  background-color: #7c4dff; }
+  .principle-2 article {
+    background-color: #4caf50; }
+
+.principle-3 {
+  background-color: #536dfe; }
+  .principle-3 article {
+    background-color: #ff5722; }
+
+.principle-4 {
+  background-color: #ffc107; }
+  .principle-4 article {
+    background-color: #673ab7; }
+
+.principle-5 {
+  background-color: #607d8b; }
+  .principle-5 article {
+    background-color: #8bc34a; }
+
+.conclusion-1 {
+  background-color: #ffc107; }
+  .conclusion-1 article {
+    background-color: #2196f3; }
+  .conclusion-1 h1 {
+    font-size: 2em; }
+  .conclusion-1 h2 {
+    font-size: 1.5em;
+    text-align: center; }
+  .conclusion-1 li {
+    font-size: 1.5em; }
+
+.conclusion-2 {
+  background-color: #f44336; }
+  .conclusion-2 article {
+    background-color: #ff5722; }
+  .conclusion-2 h1 {
+    font-size: 2em; }
+
+.btn-quiz {
+  text-align: center; }
+
+/*# sourceMappingURL=root.css.map */

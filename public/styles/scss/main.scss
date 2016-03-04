@@ -3,6 +3,10 @@
 $bodyFont: 'Fira Sans', sans-serif;
 $mainFontColor: white;
 
+//Variables:
+
+
+
 // Main attributes for all page
 
 * {
@@ -12,6 +16,8 @@ $mainFontColor: white;
 body {
   font-family: $bodyFont;
   color: $mainFontColor;
+  height:100%;
+  width: 100%;
 }
 
 a {
@@ -22,4 +28,10 @@ a {
   }
 }
 
+.btn {
+  padding: .4em;
+  border: 1px solid;
+}
+
 @import url(./nav.css);
+@import url(./root.css);

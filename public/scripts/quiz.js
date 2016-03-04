@@ -116,7 +116,7 @@ $(document).ready(function(){
 
   function removeRenderScore(){
     $renderScoreContainer.empty();
-  }
+  };
 
   function renderRoundtComplete() {
     $renderAnswerContainer.append('<h2>Congratulations you have '+score+' / '+ tries+'</h2>');

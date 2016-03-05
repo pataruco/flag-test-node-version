@@ -1,0 +1,50 @@
+//Fonts
+
+$bodyFont: 'Fira Sans', sans-serif;
+$mainFontColor: white;
+
+//Variables:
+
+
+
+// Main attributes for all page
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $bodyFont;
+  color: $mainFontColor;
+  height:100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $mainFontColor;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn {
+  padding: .4em;
+  border: 1px solid;
+}
+
+//Utils
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+​
+.clearfix:after {
+    clear: both;
+}
+
+@import url(./nav.css);
+@import url(./root.css);
+@import url(./quiz.css);

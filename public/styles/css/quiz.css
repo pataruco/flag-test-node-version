@@ -1,0 +1,61 @@
+.quiz-feature {
+  background-color: #607d8b;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  .quiz-feature section {
+    width: 90%;
+    position: relative;
+    margin: 2.0em auto 0; }
+  .quiz-feature img {
+    height: 45vh;
+    display: block;
+    margin: 0 auto; }
+  .quiz-feature h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0.5em 0.5em rgba(0, 0, 0, 0.65); }
+
+.where-button {
+  font-size: 1.5rem;
+  line-height: 0;
+  text-align: right;
+  font-weight: lighter;
+  text-decoration: underline; }
+
+.quiz-btns {
+  text-align: center; }
+
+.quiz-btn {
+  padding: .8em 5em;
+  margin: 0 .25em; }
+  .quiz-btn:first-child {
+    background-color: #f44336; }
+  .quiz-btn:last-child {
+    background-color: #4caf50; }
+
+.render-where {
+  position: absolute;
+  top: 18vh;
+  left: 2vw;
+  width: 98%;
+  height: 56%;
+  box-shadow: 0.5em 0.5em rgba(0, 0, 0, 0.65);
+  display: none; }
+
+.render-where.on {
+  display: initial; }
+
+.render-answer {
+  text-align: center;
+  height: 1.5em; }
+
+.render-score p {
+  float: right;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 1.2em; }
+
+/*# sourceMappingURL=quiz.css.map */

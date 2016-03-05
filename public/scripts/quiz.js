@@ -9,6 +9,8 @@ $(document).ready(function(){
       tries = 0,
       $renderScoreContainer = $('#score'),
       $renderTriesContainer = $('#tries'),
+      $flagName = $('#flag-name'),
+      $flagImage = $('#flag-img'),
       $renderFlagContainer = $('#render-flag');
 
   //Event Listeners
@@ -29,6 +31,7 @@ $(document).ready(function(){
       renderFlag();
       renderScore(score);
       renderTries(tries);
+      WhereInTheWorld();
     });
   };
 
@@ -39,16 +42,22 @@ $(document).ready(function(){
 
   function renderFlag() {
     randomFlag();
-    $buttonWhere
-      .after('<img src="' + flag.url + '" alt="'+ flag.name +'"/>')
-      .after('<h1>' + flag.name + '</h1>');
+    $flagName.text(flag.name);
+    $flagImage.attr('src', flag.url).attr('alt', flag.name);
+  };
+
+  function WhereInTheWorld() {
+    var map = "https://www.google.com/maps/embed/v1/search?key=AIzaSyA00nFCVfgsnGqEIEpmO-sjelodI3op1MI&q="+flag.name;
+    $('#iframe-where').attr('src', map)
   };
 
   function renderWhereInTheWorld(e) {
-    var map = "https://www.google.com/maps/embed/v1/search?key=AIzaSyA00nFCVfgsnGqEIEpmO-sjelodI3op1MI&q="+flag.name;
-    $('#render-where')
-      .append('<iframe src="'+ map +'" width= 100% height= 100% frameborder="0" style="border:0" allowfullscreen></iframe>');
-  };
+    $('#render-where').addClass('on');
+  }
+
+  function removeWhereInTheWorld(){
+    $('#render-where').removeClass('on')
+  }
 
   function evaluateFlag(e){
     e.preventDefault();
@@ -71,26 +80,30 @@ $(document).ready(function(){
   };
 
   function renderCorrectAnswer() {
-    $renderAnswerContainer.append('<h2>Correct!</h2>');
+    $renderAnswerContainer.text('Correct!');
     updateScore();
     renderScore();
     updateTries();
     renderTries();
     removeFlag();
+    removeWhereInTheWorld();
+    WhereInTheWorld();
     checkRoundNumber();
   };
 
   function renderWrongtAnswer() {
-    $renderAnswerContainer.append('<h2>Wrong!</h2>');
+    $renderAnswerContainer.text('Wrong!');
     updateTries();
     renderTries();
     removeFlag();
+    removeWhereInTheWorld();
+    WhereInTheWorld();
     checkRoundNumber();
   };
 
   function removeFlag() {
-    $renderFlagContainer.find('img').remove();
-    $renderFlagContainer.find('h1').remove();
+    $flagName.text('');
+    $flagImage.attr('src', flag.url).attr('');
     renderFlag();
   };
 
@@ -116,18 +129,19 @@ $(document).ready(function(){
 
   function removeRenderScore(){
     $renderScoreContainer.empty();
+    $renderTriesContainer.empty();
   };
 
   function renderRoundtComplete() {
-    $renderAnswerContainer.append('<h2>Congratulations you have '+score+' / '+ tries+'</h2>');
+    $renderAnswerContainer.text('Congratulations you have ' + score + ' / '+ tries + '');
+    removeRenderScore();
     updateTries();
-    renderTries();
+    updateScore();
     removeFlag();
   };
 
   function checkRoundNumber() {
-    if (tries === 5) {
-      removeRenderScore();
+    if (tries === 10) {
       renderRoundtComplete();
       score = 0;
       tries = 0;

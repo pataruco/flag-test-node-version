@@ -33,5 +33,18 @@ a {
   border: 1px solid;
 }
 
+//Utils
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+​
+.clearfix:after {
+    clear: both;
+}
+
 @import url(./nav.css);
 @import url(./root.css);
+@import url(./quiz.css);

@@ -1,5 +1,7 @@
+@charset "UTF-8";
 @import url(./nav.css);
 @import url(./root.css);
+@import url(./quiz.css);
 * {
   box-sizing: border-box; }
 
@@ -18,5 +20,14 @@ a {
 .btn {
   padding: .4em;
   border: 1px solid; }
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+​
+.clearfix:after {
+  clear: both; }
 
 /*# sourceMappingURL=main.css.map */

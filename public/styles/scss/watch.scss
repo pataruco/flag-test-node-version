@@ -1,0 +1,47 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  article {
+    width:90%;
+    margin: 0 auto;
+    padding: 2em;
+    box-shadow: 1em 1em rgba(0, 0, 0, 0.65);
+  }
+}
+
+.watch-intro {
+  background-color: rgba(255, 87, 34, 1.0);
+
+  article {
+    background-color: rgba(76, 175, 80, 1.0);
+  }
+
+  p {
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
+}
+
+.youtube {
+  background-color: rgba(255, 64, 129, 1.0);
+
+  article{
+    background-color: rgba(96, 125, 139, 1.0);
+  }
+}
+
+.soundcloud {
+  background-color: rgba(83, 109, 254, 1.0);
+
+  article{
+    background-color: rgba(255, 193, 7, 1.0);
+  }
+}
+
+.embed-media {
+  text-align: center;
+}

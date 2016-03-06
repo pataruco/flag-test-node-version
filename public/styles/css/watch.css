@@ -1,0 +1,34 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  .section article {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2em;
+    box-shadow: 1em 1em rgba(0, 0, 0, 0.65); }
+
+.watch-intro {
+  background-color: #ff5722; }
+  .watch-intro article {
+    background-color: #4caf50; }
+  .watch-intro p {
+    font-weight: 100;
+    font-size: 1.5rem; }
+
+.youtube {
+  background-color: #ff4081; }
+  .youtube article {
+    background-color: #607d8b; }
+
+.soundcloud {
+  background-color: #536dfe; }
+  .soundcloud article {
+    background-color: #ffc107; }
+
+.embed-media {
+  text-align: center; }
+
+/*# sourceMappingURL=watch.css.map */

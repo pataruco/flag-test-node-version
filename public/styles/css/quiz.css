@@ -38,12 +38,19 @@
 
 .render-where {
   position: absolute;
-  top: 18vh;
+  top: 15vh;
   left: 2vw;
   width: 98%;
-  height: 56%;
+  height: 52%;
   box-shadow: 0.5em 0.5em rgba(0, 0, 0, 0.65);
   display: none; }
+  .render-where span {
+    float: right;
+    font-size: 1rem;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center; }
 
 .render-where.on {
   display: initial; }

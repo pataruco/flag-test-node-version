@@ -18,6 +18,7 @@ $(document).ready(function(){
   $buttonWhere.on('click', renderWhereInTheWorld);
   $('.js-quiz-evaluation-btn').on('click', evaluateFlag);
   $renderAnswerContainer.on('click', removeAnswer);
+  $('#close-map').on('click', removeWhereInTheWorld);
 
   // Functions
   function getFlags(e) {

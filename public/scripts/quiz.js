@@ -53,11 +53,11 @@ $(document).ready(function(){
   };
 
   function renderWhereInTheWorld(e) {
-    $('#render-where').addClass('on');
+    $('#render-where').addClass('on ');
   }
 
   function removeWhereInTheWorld(){
-    $('#render-where').removeClass('on')
+    $('#render-where').removeClass('on animated bounceIn');
   }
 
   function evaluateFlag(e){

@@ -43,8 +43,8 @@ $(document).ready(function(){
 
   function renderFlag() {
     randomFlag();
-    $flagName.text(flag.name);
-    $flagImage.attr('src', flag.url).attr('alt', flag.name);
+    $flagName.text(flag.name).animateCss('slideInDown');
+    $flagImage.attr('src', flag.url).attr('alt', flag.name).animateCss('slideInRight');
   };
 
   function WhereInTheWorld() {
@@ -134,7 +134,7 @@ $(document).ready(function(){
   };
 
   function renderRoundtComplete() {
-    $renderAnswerContainer.text('Congratulations you have ' + score + ' / '+ tries + '');
+    $renderAnswerContainer.text('Congratulations you have ' + score + ' / '+ tries + '').animateCss('bounceIn');
     removeRenderScore();
     updateTries();
     updateScore();

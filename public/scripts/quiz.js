@@ -53,7 +53,7 @@ $(document).ready(function(){
   };
 
   function renderWhereInTheWorld(e) {
-    $('#render-where').addClass('on ');
+    $('#render-where').addClass('on animated bounceIn');
   }
 
   function removeWhereInTheWorld(){

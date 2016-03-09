@@ -8,3 +8,15 @@ $.fn.extend({
         });
     }
 });
+
+//nav on small screen
+
+$(document).ready(function(){
+  var menuIcon = $('#menu-icon');
+
+  menuIcon.on('click', showNav);
+
+  function showNav () {
+    $('nav ul').slideToggle('slow');
+  };
+});//end document

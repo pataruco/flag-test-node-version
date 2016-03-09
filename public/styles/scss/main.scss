@@ -82,10 +82,8 @@ a {
   }
 }
 
-
-
-@import url(./nav.css);
-@import url(./root.css);
-@import url(./quiz.css);
-@import url(./watch.css);
-@import url(./about.css);
+@import 'nav';
+@import 'root';
+@import 'quiz';
+@import 'watch';
+@import 'about';

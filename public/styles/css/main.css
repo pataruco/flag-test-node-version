@@ -55,9 +55,6 @@ a {
 .clearfix:after {
   clear: both; }
 
-@media (max-width: 768px) {
-  body, html {
-    font-size: 14px; } }
 @media (min-width: 769px) and (max-width: 992px) {
   body, html {
     font-size: 16px; } }

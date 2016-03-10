@@ -2,6 +2,9 @@
 * {
   box-sizing: border-box; }
 
+:root {
+  font-size: 16px; }
+
 body {
   font-family: "Fira Sans", sans-serif;
   color: white;
@@ -50,7 +53,10 @@ a {
 .clearfix:after {
   clear: both; }
 
-@media (min-width: 769px) and (max-width: 992px) {
+@media screen and (min-width: 320px) {
+  body, html {
+    font-size: 22px; } }
+@media (min-width: 769px) {
   body, html {
     font-size: 16px; } }
 @media (min-width: 993px) {
@@ -76,14 +82,17 @@ a {
 
   .menu-icon {
     display: none; } }
-@media (max-width: 768px) {
+@media (min-width: 320px) {
   header {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.93);
     box-shadow: 0.5em 0.5em rgba(0, 0, 0, 0.65);
-    text-align: center; }
+    text-align: center;
+    z-index: 1; }
+    header nav {
+      text-align: center; }
     header ul {
       display: none; }
     header li {
@@ -214,7 +223,7 @@ a {
   text-align: center; }
 
 .quiz-btn {
-  padding: .8em 5em;
+  padding: .5em 1em;
   margin: 0 .25em; }
   .quiz-btn:first-child {
     background-color: #f44336; }

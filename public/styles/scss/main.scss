@@ -9,6 +9,9 @@ $mainBoxShadow: 0.5em 0.5em rgba(0, 0, 0, 0.65);
 * {
   box-sizing: border-box;
 }
+:root {
+  font-size: 16px;
+}
 
 body {
   font-family: $bodyFont;
@@ -69,8 +72,13 @@ a {
 .clearfix:after {
     clear: both;
 }
+@media screen and (min-width: 320px) {
+  body, html {
+    font-size: 22px;
+  }
+}
 
-@media ( min-width: 769px)  and (max-width: 992px){
+@media ( min-width: 769px){
   body, html {
     font-size: 16px;
   }
@@ -81,6 +89,7 @@ a {
     font-size: 18px;
   }
 }
+
 
 @import 'nav';
 @import 'root';

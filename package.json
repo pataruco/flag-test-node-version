@@ -7,6 +7,7 @@
   },
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "postinstall": "node db/seeds/principles.js && node db/seeds/flags.js"
   },
   "repository": {
